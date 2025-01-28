@@ -70,16 +70,16 @@ stages:
           penalty: l1
           solver: liblinear
         Train.Vectorizer:
-          max_features: 2500
+          max_features: 3000
     outs:
     - path: models/logistic_regression_model.pkl
       hash: md5
-      md5: 230e66fd40fcb2bad929392bd3262725
-      size: 20724
+      md5: b75c37df9fddbf417f8ff2f2920761f2
+      size: 24724
     - path: models/tfidf_vectorizer.pkl
       hash: md5
-      md5: a8eff62ccbf4091aca80b2dd516faedf
-      size: 91091
+      md5: c26456252f04e6e64c880b3bf12deefa
+      size: 109348
   model_evaluation:
     cmd: python src/model_evaluation.py
     deps:
@@ -97,12 +97,12 @@ stages:
       size: 3343080
     - path: models/logistic_regression_model.pkl
       hash: md5
-      md5: 230e66fd40fcb2bad929392bd3262725
-      size: 20724
+      md5: b75c37df9fddbf417f8ff2f2920761f2
+      size: 24724
     - path: models/tfidf_vectorizer.pkl
       hash: md5
-      md5: a8eff62ccbf4091aca80b2dd516faedf
-      size: 91091
+      md5: c26456252f04e6e64c880b3bf12deefa
+      size: 109348
     - path: src/model_evaluation.py
       hash: md5
       md5: 060864068cdc854bed00e95343756dcc
