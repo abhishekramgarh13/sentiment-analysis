@@ -8,11 +8,18 @@ stages:
       md5: e8b821724a7f0d4da62d5129031ac169
       size: 2673
     outs:
-    - path: data/raw
+    - path: data/raw/imdb_test.csv
       hash: md5
-      md5: 0dba4379e0c15f5bbaab47e272136e65.dir
-      size: 65912328
-      nfiles: 3
+      md5: b62d024660ab7394b970bb51951bf86e
+      size: 13045906
+    - path: data/raw/imdb_train.csv
+      hash: md5
+      md5: bcb790a2f1d063429910fb469b314e43
+      size: 47630701
+    - path: data/raw/imdb_validation.csv
+      hash: md5
+      md5: d8deb73937d2cb6db54ee89ba70d9035
+      size: 5235721
   data_preprocessing:
     cmd: python src/data_preprocessing.py
     deps:
@@ -33,11 +40,18 @@ stages:
       md5: 2c49065930148706e24ecbbde5eb3b3d
       size: 2716
     outs:
-    - path: data/processed
+    - path: data/processed/imdb_test.csv
       hash: md5
-      md5: f8ecb15b217dd9708bd257cd930d0be8.dir
-      size: 41871865
-      nfiles: 3
+      md5: 448610079a69e5daa501cfda1bbe9cd9
+      size: 8310501
+    - path: data/processed/imdb_train.csv
+      hash: md5
+      md5: 0132771e00006c7a252ada6773e91cae
+      size: 30218284
+    - path: data/processed/imdb_validation.csv
+      hash: md5
+      md5: 00f896f9c4eb9e149378f94f1801cac0
+      size: 3343080
   model_building:
     cmd: python src/model_training.py
     deps:

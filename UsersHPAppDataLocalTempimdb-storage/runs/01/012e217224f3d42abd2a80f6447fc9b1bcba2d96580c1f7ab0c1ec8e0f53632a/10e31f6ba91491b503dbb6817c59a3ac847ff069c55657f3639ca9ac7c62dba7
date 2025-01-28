@@ -1,0 +1,27 @@
+cmd: python src/model_training.py
+deps:
+- path: data/processed/imdb_train.csv
+  hash: md5
+  md5: 0132771e00006c7a252ada6773e91cae
+  size: 30218284
+- path: src/model_training.py
+  hash: md5
+  md5: a24531491f78b0a589ac716b896f533d
+  size: 2847
+params:
+  params.yaml:
+    Train.LR:
+      C: 1.4334074669554664
+      penalty: l1
+      solver: liblinear
+    Train.Vectorizer:
+      max_features: 2500
+outs:
+- path: models/logistic_regression_model.pkl
+  hash: md5
+  md5: 230e66fd40fcb2bad929392bd3262725
+  size: 20724
+- path: models/tfidf_vectorizer.pkl
+  hash: md5
+  md5: a8eff62ccbf4091aca80b2dd516faedf
+  size: 91091

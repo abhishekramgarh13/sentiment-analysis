@@ -1,0 +1,19 @@
+cmd: python src/model_training.py
+deps:
+- path: data/processed/imdb_train.csv
+  hash: md5
+  md5: 0132771e00006c7a252ada6773e91cae
+  size: 30218284
+- path: src/model_training.py
+  hash: md5
+  md5: 67445099a1ed58c58276551bcc17e530
+  size: 2247
+outs:
+- path: models/logistic_regression_model.pkl
+  hash: md5
+  md5: 25124b1daf3957bc00883c793290f0ed
+  size: 16720
+- path: models/tfidf_vectorizer.pkl
+  hash: md5
+  md5: 6919b34bdeafb32287e69eb9c4eac497
+  size: 72789

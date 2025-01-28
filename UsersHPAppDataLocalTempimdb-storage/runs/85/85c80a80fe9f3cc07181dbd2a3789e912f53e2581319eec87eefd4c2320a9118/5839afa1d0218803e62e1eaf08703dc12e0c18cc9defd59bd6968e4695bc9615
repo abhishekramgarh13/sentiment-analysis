@@ -1,0 +1,24 @@
+cmd: python src/data_preprocessing.py
+deps:
+- path: data/raw/imdb_test.csv
+  hash: md5
+  md5: b62d024660ab7394b970bb51951bf86e
+  size: 13045906
+- path: data/raw/imdb_train.csv
+  hash: md5
+  md5: bcb790a2f1d063429910fb469b314e43
+  size: 47630701
+- path: data/raw/imdb_validation.csv
+  hash: md5
+  md5: d8deb73937d2cb6db54ee89ba70d9035
+  size: 5235721
+- path: src/data_preprocessing.py
+  hash: md5
+  md5: 2c49065930148706e24ecbbde5eb3b3d
+  size: 2716
+outs:
+- path: data/processed
+  hash: md5
+  md5: f8ecb15b217dd9708bd257cd930d0be8.dir
+  size: 41871865
+  nfiles: 3
