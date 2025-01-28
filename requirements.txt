@@ -1,0 +1,5 @@
+datasets
+mysql-connector-python
+pandas
+scikit-learn
+numpy
