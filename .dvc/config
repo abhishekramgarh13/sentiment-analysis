@@ -1,0 +1,4 @@
+[core]
+    remote = myimdb
+['remote "myimdb"']
+    url = ../UsersHPAppDataLocalTempimdb-storage

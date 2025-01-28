@@ -1,0 +1,10 @@
+Train:
+  Vectorizer:
+    max_features: 2500
+
+  LR:
+    C: 1.4334074669554664
+    penalty: 'l1'
+    solver: 'liblinear'
+
+  

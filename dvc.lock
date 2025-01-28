@@ -1,0 +1,95 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src/data_ingestion.py
+    deps:
+    - path: src/data_ingestion.py
+      hash: md5
+      md5: e8b821724a7f0d4da62d5129031ac169
+      size: 2673
+    outs:
+    - path: data/raw
+      hash: md5
+      md5: 0dba4379e0c15f5bbaab47e272136e65.dir
+      size: 65912328
+      nfiles: 3
+  data_preprocessing:
+    cmd: python src/data_preprocessing.py
+    deps:
+    - path: data/raw/imdb_test.csv
+      hash: md5
+      md5: b62d024660ab7394b970bb51951bf86e
+      size: 13045906
+    - path: data/raw/imdb_train.csv
+      hash: md5
+      md5: bcb790a2f1d063429910fb469b314e43
+      size: 47630701
+    - path: data/raw/imdb_validation.csv
+      hash: md5
+      md5: d8deb73937d2cb6db54ee89ba70d9035
+      size: 5235721
+    - path: src/data_preprocessing.py
+      hash: md5
+      md5: 2c49065930148706e24ecbbde5eb3b3d
+      size: 2716
+    outs:
+    - path: data/processed
+      hash: md5
+      md5: f8ecb15b217dd9708bd257cd930d0be8.dir
+      size: 41871865
+      nfiles: 3
+  model_building:
+    cmd: python src/model_training.py
+    deps:
+    - path: data/processed/imdb_train.csv
+      hash: md5
+      md5: 0132771e00006c7a252ada6773e91cae
+      size: 30218284
+    - path: src/model_training.py
+      hash: md5
+      md5: a24531491f78b0a589ac716b896f533d
+      size: 2847
+    params:
+      params.yaml:
+        Train.LR:
+          C: 1.4334074669554664
+          penalty: l1
+          solver: liblinear
+        Train.Vectorizer:
+          max_features: 2500
+    outs:
+    - path: models/logistic_regression_model.pkl
+      hash: md5
+      md5: 230e66fd40fcb2bad929392bd3262725
+      size: 20724
+    - path: models/tfidf_vectorizer.pkl
+      hash: md5
+      md5: a8eff62ccbf4091aca80b2dd516faedf
+      size: 91091
+  model_evaluation:
+    cmd: python src/model_evaluation.py
+    deps:
+    - path: data/processed/imdb_test.csv
+      hash: md5
+      md5: 448610079a69e5daa501cfda1bbe9cd9
+      size: 8310501
+    - path: data/processed/imdb_train.csv
+      hash: md5
+      md5: 0132771e00006c7a252ada6773e91cae
+      size: 30218284
+    - path: data/processed/imdb_validation.csv
+      hash: md5
+      md5: 00f896f9c4eb9e149378f94f1801cac0
+      size: 3343080
+    - path: models/logistic_regression_model.pkl
+      hash: md5
+      md5: 230e66fd40fcb2bad929392bd3262725
+      size: 20724
+    - path: models/tfidf_vectorizer.pkl
+      hash: md5
+      md5: a8eff62ccbf4091aca80b2dd516faedf
+      size: 91091
+    - path: src/model_evaluation.py
+      hash: md5
+      md5: 060864068cdc854bed00e95343756dcc
+      size: 3403
