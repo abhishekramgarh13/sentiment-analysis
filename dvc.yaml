@@ -28,9 +28,8 @@ stages:
     params:
     - Train.Vectorizer
     - Train.LR
-    outs:
-    - models/tfidf_vectorizer.pkl
-    - models/logistic_regression_model.pkl
+  
+    
 
   model_evaluation:
     cmd: python src/model_evaluation.py

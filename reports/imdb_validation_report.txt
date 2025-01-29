@@ -1,9 +1,9 @@
-Accuracy: 0.8882220555138785
+Accuracy: 0.8887221805451363
 
 Classification Report:
               precision    recall  f1-score   support
 
-           0       0.89      0.88      0.89      2011
+           0       0.89      0.89      0.89      2011
            1       0.88      0.89      0.89      1988
 
     accuracy                           0.89      3999

@@ -1,6 +1,6 @@
 Train:
   Vectorizer:
-    max_features: 3000
+    max_features: 3500
 
   LR:
     C: 1.4334074669554664
