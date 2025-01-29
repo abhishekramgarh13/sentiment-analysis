@@ -4,12 +4,17 @@ import pickle
 import re
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
+import nltk
+
+# Download NLTK data if not already downloaded
+nltk.download('stopwords')
+nltk.download('wordnet')
 
 # Initialize Flask app
 app = Flask(__name__)
 
 # Load pre-trained vectorizer and model
-MODELS_DIR = os.path.join(os.getcwd(), 'models')
+MODELS_DIR = os.getenv('MODELS_DIR', 'models')  # Use environment variable or default to 'models'
 VECTORIZER_PATH = os.path.join(MODELS_DIR, 'tfidf_vectorizer.pkl')
 MODEL_PATH = os.path.join(MODELS_DIR, 'logistic_regression_model.pkl')
 
@@ -79,4 +84,4 @@ def predict():
 
 # Run the Flask app
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=False)
